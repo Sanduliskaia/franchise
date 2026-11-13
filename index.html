@@ -181,7 +181,7 @@ footer{background:var(--band);color:var(--band-muted);font-size:13px;padding-blo
         <p class="sub">Вы продаёте и организуете строительство тёплых быстровозводимых домов. Продукт, обучение, маркетинг и от 10 заявок в месяц обеспечиваем мы. Подходит для любого региона.</p>
         <div class="cta"><a class="btn" href="#calc">Посчитать прибыль</a><a class="btn ghost" href="#terms">Условия входа</a></div>
       </div>
-      <img src="img/hero.jpg" alt="Двухэтажный дом из СИП-панелей с панорамным остеклением" width="875" height="900">
+      <img src="hero.jpg" alt="Двухэтажный дом из СИП-панелей с панорамным остеклением" width="875" height="900">
     </div>
     <div class="stats">
       <div class="stat"><b>840 000 ₽</b><span>полный запуск, единоразово</span></div>
@@ -194,7 +194,7 @@ footer{background:var(--band);color:var(--band-muted);font-size:13px;padding-blo
 
 <section id="why">
   <div class="wrap split">
-    <img src="img/cover.jpg" alt="Двухэтажный дом с кирпичной и тёмной отделкой" loading="lazy" width="653" height="465">
+    <img src="cover.jpg" alt="Двухэтажный дом с кирпичной и тёмной отделкой" loading="lazy" width="653" height="465">
     <div>
       <div class="eyebrow">Почему СИП</div>
       <h2>Продукт, который строится быстро и продаётся легко</h2>
@@ -251,9 +251,9 @@ footer{background:var(--band);color:var(--band-muted);font-size:13px;padding-blo
       <p class="lead">Небольшие дома 25–60 м² от 1 120 000 ₽. Стиль подбираем под концепцию и участок: А-фрейм, хай-тек, классика, шале, барнхаус. При необходимости предусматриваем сауны, террасы и бассейны.</p>
     </div>
     <div class="bizgrid">
-      <img src="img/biz1.jpg" alt="Дом-модуль с панорамным остеклением у озера" loading="lazy">
-      <img src="img/biz2.jpg" alt="Дом в стиле барнхаус в лесу" loading="lazy">
-      <img src="img/biz3.jpg" alt="Дом в стиле А-фрейм с террасой" loading="lazy">
+      <img src="biz1.jpg" alt="Дом-модуль с панорамным остеклением у озера" loading="lazy">
+      <img src="biz2.jpg" alt="Дом в стиле барнхаус в лесу" loading="lazy">
+      <img src="biz3.jpg" alt="Дом в стиле А-фрейм с террасой" loading="lazy">
     </div>
   </div>
 </section>
@@ -389,7 +389,7 @@ footer{background:var(--band);color:var(--band-muted);font-size:13px;padding-blo
 <section id="contact" class="contact">
   <div class="wrap grid">
     <div>
-      <img class="logo" src="img/logo.png" alt="Интелиос-Строй">
+      <img class="logo" src="logo.png" alt="Интелиос-Строй">
       <div class="eyebrow">Следующий шаг</div>
       <h2>Обсудим ваш регион и формат запуска</h2>
       <p class="lead" style="color:var(--band-muted)">Позвоните или напишите. Расскажем о территории, подберём проекты и покажем, как будет устроен запуск.</p>
@@ -421,7 +421,7 @@ let flt="all",shown=9;
 const inF=p=>flt==="all"||(flt==="a"&&p[1]<2500)||(flt==="b"&&p[1]>=2500&&p[1]<4000)||(flt==="c"&&p[1]>=4000);
 function renderP(){
   const list=P.filter(inF),box=document.getElementById("projects");
-  box.innerHTML=list.slice(0,shown).map(p=>`<article class="pcard"><img loading="lazy" src="img/p${p[0]}.jpg" alt="Проект ${p[0]}"><div><div class="no">ПРОЕКТ ${p[0]}</div><div class="pr">от ${fmt(p[1]*1000)} ₽</div><div class="ds">${p[3]}<br>${p[2]} м²</div></div></article>`).join("");
+  box.innerHTML=list.slice(0,shown).map(p=>`<article class="pcard"><img loading="lazy" src="p${p[0]}.jpg" alt="Проект ${p[0]}"><div><div class="no">ПРОЕКТ ${p[0]}</div><div class="pr">от ${fmt(p[1]*1000)} ₽</div><div class="ds">${p[3]}<br>${p[2]} м²</div></div></article>`).join("");
   const m=document.getElementById("more");m.hidden=list.length<=shown;
 }
 document.getElementById("filters").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;flt=b.dataset.f;shown=9;
@@ -434,7 +434,7 @@ const K={
  pre:{t:"Предчистовая комплектация",l:["Всё из базовой комплектации","Фасад: мягкий кирпич, металлический сайдинг, короед или фибролитовые панели","Электричество внутри дома по ГОСТ","Водопровод и канализация внутри дома","ГКЛ на стенах"],i:[["kit_pre_ext","Дом с готовым фасадом"],["kit_pre_int","Разводка электрики и ГКЛ"]]},
  key:{t:"Под ключ",l:["Внутренняя отделка полностью «под ключ»","Наружная отделка фасада «под ключ»","Септики и станции «под ключ»","Инженерные коммуникации: электричество, водоподведение, водоотведение","Внешняя фасадная отделка, включая водосточную систему"],i:[["p012","Проект 012"],["p019","Проект 019"]]}
 };
-function renderK(k){const d=K[k];document.getElementById("kit").innerHTML=`<div><h3 style="font-size:22px">${d.t}</h3><ul>${d.l.map(x=>`<li>${x}</li>`).join("")}</ul></div><div class="imgs">${d.i.map(i=>`<img loading="lazy" src="img/${i[0]}.jpg" alt="${i[1]}">`).join("")}</div>`}
+function renderK(k){const d=K[k];document.getElementById("kit").innerHTML=`<div><h3 style="font-size:22px">${d.t}</h3><ul>${d.l.map(x=>`<li>${x}</li>`).join("")}</ul></div><div class="imgs">${d.i.map(i=>`<img loading="lazy" src="${i[0]}.jpg" alt="${i[1]}">`).join("")}</div>`}
 document.getElementById("tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
   document.querySelectorAll("#tabs .chip").forEach(c=>c.setAttribute("aria-pressed",c===b));renderK(b.dataset.k)});
 renderK("base");
